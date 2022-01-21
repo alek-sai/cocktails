@@ -7,8 +7,6 @@
 
 import Foundation
 
-// MARK: FiltersCoordinator
-
 class FiltersCoordinator: BaseCoordinator {
     
     var categories: [Category]!

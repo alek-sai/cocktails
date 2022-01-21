@@ -13,8 +13,6 @@ protocol DrinksCoordinatorProtocol {
     func setFilteredCategoriesAndApply(_ categories: [Category])
 }
 
-// MARK: DrinksCoordinator
-
 class DrinksCoordinator: BaseCoordinator {
     
     private let drinksView = DrinksViewController()

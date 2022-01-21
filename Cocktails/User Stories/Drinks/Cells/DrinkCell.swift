@@ -35,8 +35,6 @@ class DrinkCell: UITableViewCell {
         contentView.addSubview(image)
         contentView.addSubview(name)
         
-        image.backgroundColor = MiscStyles.placeholderImageColor()
-        
         name.translatesAutoresizingMaskIntoConstraints = false
         name.font = UIFont.systemFont(ofSize: 17)
     }

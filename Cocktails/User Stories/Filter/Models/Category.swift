@@ -15,7 +15,7 @@ struct Categories: Codable {
 
 // MARK: Category
 
-struct Category: Codable {
+struct Category: Codable, Equatable {
     let name: String
     var active: Bool = true
 }
@@ -24,14 +24,4 @@ extension Category {
     enum CodingKeys: String, CodingKey {
         case name = "strCategory"
     }
-}
-
-// MARK: Category Equation
-    
-extension Category: Equatable {
-    
-    static func == (lhs: Self, rhs: Self) -> Bool {
-        lhs.name == rhs.name && lhs.active == rhs.active
-    }
-
 }

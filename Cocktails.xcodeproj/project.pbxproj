@@ -36,7 +36,6 @@
 		578F293127996067008088C7 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 578F293027996067008088C7 /* RxCocoa */; };
 		578F293327996067008088C7 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 578F293227996067008088C7 /* RxSwift */; };
 		578F2936279962F9008088C7 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 578F2935279962F9008088C7 /* RxDataSources */; };
-		57B39A452799F553008C4B0F /* MiscStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B39A442799F553008C4B0F /* MiscStyles.swift */; };
 		57B39A482799F785008C4B0F /* MBProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 57B39A472799F785008C4B0F /* MBProgressHUD */; };
 		57B39A4B2799F7B0008C4B0F /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 57B39A4A2799F7B0008C4B0F /* SDWebImage */; };
 		57B39A4D2799FEF3008C4B0F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57B39A4C2799FEF3008C4B0F /* LaunchScreen.storyboard */; };
@@ -69,7 +68,6 @@
 		578F291E27986592008088C7 /* DrinkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkCell.swift; sourceTree = "<group>"; };
 		578F292A27989560008088C7 /* FilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
 		578F292D2798A1C9008088C7 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
-		57B39A442799F553008C4B0F /* MiscStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscStyles.swift; sourceTree = "<group>"; };
 		57B39A4C2799FEF3008C4B0F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		57B39A4E279A07E6008C4B0F /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -156,7 +154,6 @@
 			isa = PBXGroup;
 			children = (
 				578F28EB27971967008088C7 /* ButtonStyles.swift */,
-				57B39A442799F553008C4B0F /* MiscStyles.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -417,7 +414,6 @@
 				578F29072798472B008088C7 /* BaseNavigationController.swift in Sources */,
 				578F28D827971882008088C7 /* DrinksCoordinator.swift in Sources */,
 				578F28E4279718D6008088C7 /* FiltersPresenter.swift in Sources */,
-				57B39A452799F553008C4B0F /* MiscStyles.swift in Sources */,
 				578F28EF2797F7D7008088C7 /* CocktailsDbApi.swift in Sources */,
 				578F291027984751008088C7 /* UIViewController+Keyboard.swift in Sources */,
 				578F28EC27971967008088C7 /* ButtonStyles.swift in Sources */,

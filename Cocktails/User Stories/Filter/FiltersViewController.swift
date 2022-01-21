@@ -95,7 +95,7 @@ class FiltersViewController: UIViewController {
             let isChanged = self.presenter.checkIfFilterChanged(nextCategories)
             
             self.applyButton.isEnabled = isChanged
-            self.applyButton.backgroundColor = isChanged ? ButtonStyles.blueButtonEnabledColor() : ButtonStyles.blueButtonDisabledColor()
+            self.applyButton.backgroundColor = isChanged ? R.color.accentColor() : R.color.disabledColor()
         })
         
         tableView.rx

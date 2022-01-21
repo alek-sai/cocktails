@@ -152,7 +152,7 @@ extension DrinksViewController: DrinksViewControllerProtocol {
             filtersButton.addTarget(self, action: #selector(onFiltersTap), for: .touchUpInside)
 
             let badgeView = UIView(frame: CGRect(x: 22, y: 0, width: 8, height: 8))
-            badgeView.backgroundColor = MiscStyles.filtersBadgeColor()
+            badgeView.backgroundColor = R.color.badgeColor()
             badgeView.layer.cornerRadius = 4
 
             filtersButton.addSubview(badgeView)
