@@ -1,0 +1,11 @@
+//
+//  Localizable.strings
+//  Cocktails
+//
+//  Created by Alek Sai on 21/01/2022.
+//
+
+"navigator.drinks.title" = "Drinks";
+"navigator.filters.title" = "Filters";
+
+"filters.apply_button.title" = "Apply Filters";
