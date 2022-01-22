@@ -8,4 +8,7 @@
 "navigator.drinks.title" = "Drinks";
 "navigator.filters.title" = "Filters";
 
+"drinks.error.title" = "Can't load drinks";
+"drinks.retry_button.title" = "Retry";
+
 "filters.apply_button.title" = "Apply Filters";

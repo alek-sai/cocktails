@@ -16,6 +16,7 @@ protocol DrinksViewControllerProtocol {
     func setFilterBadgeEnabled(_ enabled: Bool)
     func reset()
     func addCategory(name: String, drinks: [Drink])
+    func showError()
 }
 
 class DrinksViewController: UIViewController {
@@ -95,6 +96,7 @@ class DrinksViewController: UIViewController {
     
     private func showHUD() {
         hud = MBProgressHUD.showAdded(to: view, animated: true)
+        
         hud.margin = 40
     }
     
@@ -102,6 +104,12 @@ class DrinksViewController: UIViewController {
         guard drinks.count > 0 else { return }
         
         presenter.openFilters()
+    }
+    
+    @objc func onRetryTap() {
+        hud.hide(animated: false)
+        
+        presenter.retry()
     }
     
 }
@@ -163,7 +171,7 @@ extension DrinksViewController: DrinksViewControllerProtocol {
         }
     }
     
-    func reset() {
+    @objc func reset() {
         drinks.removeAll()
         
         drinksSubject.onNext(drinks)
@@ -177,6 +185,17 @@ extension DrinksViewController: DrinksViewControllerProtocol {
         self.drinks.append(SectionModel(model: name, items: drinks))
         
         drinksSubject.onNext(self.drinks)
+    }
+    
+    func showError() {
+        hud = MBProgressHUD.showAdded(to: view, animated: true)
+        
+        hud.mode = .customView
+        hud.customView = UIImageView(image: R.image.error())
+        hud.margin = 20
+        hud.label.text = R.string.localizable.drinksErrorTitle()
+        hud.button.setTitle(R.string.localizable.drinksRetry_buttonTitle(), for: .normal)
+        hud.button.addTarget(self, action: #selector(onRetryTap), for: .touchUpInside)
     }
     
 }

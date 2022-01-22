@@ -8,6 +8,10 @@
 import Foundation
 
 protocol FiltersPresenterProtocol: AnyObject {
+    
+}
+
+protocol FiltersPresenterInputsProtocol: AnyObject {
     func viewDidLoad()
     func toggleCategoryFilter(_ row: Int)
     func applyFilters()
@@ -24,9 +28,9 @@ class FiltersPresenter {
     
 }
 
-// MARK: FiltersPresenterProtocol
+// MARK: FiltersPresenterInputsProtocol
 
-extension FiltersPresenter: FiltersPresenterProtocol {
+extension FiltersPresenter: FiltersPresenterInputsProtocol {
     
     func viewDidLoad() {
         view.setFilters(interactor.categories)
@@ -47,3 +51,7 @@ extension FiltersPresenter: FiltersPresenterProtocol {
     }
     
 }
+
+// MARK: FiltersPresenterProtocol
+
+extension FiltersPresenter: FiltersPresenterProtocol {}

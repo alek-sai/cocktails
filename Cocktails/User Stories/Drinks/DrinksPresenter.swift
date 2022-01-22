@@ -10,6 +10,15 @@ import Foundation
 protocol DrinksPresenterProtocol: AnyObject {
     func onSuccessLoadCategories(_ categories: [Category])
     func onSuccessLoadDrinksCategory(name: String, drinks: [Drink])
+    func onError()
+}
+
+protocol DrinksPresenterInputsProtocol: AnyObject {
+    func viewDidLoad()
+    func loadNextDrinkCategory()
+    func retry()
+    func openFilters()
+    func refreshFilter()
 }
 
 class DrinksPresenter {
@@ -24,7 +33,11 @@ class DrinksPresenter {
     
     var categories: [Category] = []
     
-    // MARK: Public methods
+}
+
+// MARK: DrinksPresenterInputsProtocol
+
+extension DrinksPresenter: DrinksPresenterInputsProtocol {
     
     func viewDidLoad() {
         interactor.loadCategories()
@@ -34,16 +47,20 @@ class DrinksPresenter {
         interactor.loadNextDrinksCategory()
     }
     
+    func retry() {
+        interactor.retry()
+    }
+    
+    func openFilters() {
+        coordinator.openFilters(navigationContoller: view.navigationController, categories: categories)
+    }
+    
     func refreshFilter() {
         view?.reset()
         view?.setFilterBadgeEnabled(categories.filter { !$0.active }.count > 0)
         
         interactor.categories = categories.filter { $0.active }
         interactor.loadNextDrinksCategory()
-    }
-    
-    func openFilters() {
-        coordinator.openFilters(navigationContoller: view.navigationController, categories: categories)
     }
     
 }
@@ -58,6 +75,10 @@ extension DrinksPresenter: DrinksPresenterProtocol {
     
     func onSuccessLoadDrinksCategory(name: String, drinks: [Drink]) {
         view?.addCategory(name: name, drinks: drinks)
+    }
+    
+    func onError() {
+        view?.showError()
     }
     
 }

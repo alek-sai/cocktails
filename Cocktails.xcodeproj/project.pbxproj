@@ -136,7 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				578F28D4279717F9008088C7 /* Drinks */,
-				578F28D52797180F008088C7 /* Filter */,
+				578F28D52797180F008088C7 /* Filters */,
 			);
 			path = "User Stories";
 			sourceTree = "<group>";
@@ -195,7 +195,7 @@
 			path = Drinks;
 			sourceTree = "<group>";
 		};
-		578F28D52797180F008088C7 /* Filter */ = {
+		578F28D52797180F008088C7 /* Filters */ = {
 			isa = PBXGroup;
 			children = (
 				578F292927989550008088C7 /* Cells */,
@@ -205,7 +205,7 @@
 				578F28E5279718E3008088C7 /* FiltersInteractor.swift */,
 				578F28E7279718ED008088C7 /* FiltersViewController.swift */,
 			);
-			path = Filter;
+			path = Filters;
 			sourceTree = "<group>";
 		};
 		578F28D627971839008088C7 /* Base */ = {
