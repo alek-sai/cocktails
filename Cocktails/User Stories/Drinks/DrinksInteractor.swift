@@ -31,7 +31,7 @@ class DrinksInteractor {
     
     // MARK: Data
     
-    var categories: [Category] = []
+    var categoriesToLoad: [Category] = []
     var nextRequest: Request!
 
 }
@@ -41,15 +41,18 @@ class DrinksInteractor {
 extension DrinksInteractor: DrinksInteractorProtocol {
     
     func loadCategories() {
+        if nextRequest != nil { return }
         nextRequest = Request.loadCategories
         
         drinksNetworkProvider.request(.categories, completion: { result in
             switch result {
             case let .success(response):
                 do {
-                    self.categories = try JSONDecoder().decode(Categories.self, from: response.data).drinks
+                    self.categoriesToLoad = try JSONDecoder().decode(Categories.self, from: response.data).drinks
                     
-                    self.presenter.onSuccessLoadCategories(self.categories)
+                    self.presenter.onSuccessLoadCategories(self.categoriesToLoad)
+                    
+                    self.nextRequest = nil
                     
                     self.loadNextDrinksCategory()
                 } catch _ {
@@ -62,8 +65,9 @@ extension DrinksInteractor: DrinksInteractorProtocol {
     }
     
     func loadNextDrinksCategory() {
-        guard let nextCategory = categories.first else { return }
+        guard let nextCategory = categoriesToLoad.first else { return }
         
+        if nextRequest != nil { return }
         nextRequest = Request.loadNextDrinksCategory
         
         let name = nextCategory.name
@@ -72,9 +76,11 @@ extension DrinksInteractor: DrinksInteractorProtocol {
             switch result {
             case let .success(response):
                 do {
-                    self.categories.remove(at: 0)
-                    
                     self.presenter.onSuccessLoadDrinksCategory(name: name, drinks: try JSONDecoder().decode(Drinks.self, from: response.data).drinks)
+                    
+                    self.categoriesToLoad.remove(at: 0)
+                    
+                    self.nextRequest = nil
                 } catch _ {
                     self.presenter.onError()
                 }

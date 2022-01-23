@@ -43,10 +43,9 @@ extension DrinksCoordinator: DrinksCoordinatorProtocol {
     func openFilters(navigationContoller: UINavigationController?, categories: [Category]) {
         let filtersCoordinator = FiltersCoordinator(navigationController: navigationController)
         
-        filtersCoordinator.categories = categories
         filtersCoordinator.drinksCoordinator = self
 
-        filtersCoordinator.start()
+        filtersCoordinator.startWithCategories(categories)
     }
     
     func setFilteredCategoriesAndApply(_ categories: [Category]) {

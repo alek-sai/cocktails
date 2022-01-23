@@ -47,7 +47,7 @@ extension FiltersPresenter: FiltersPresenterInputsProtocol {
     }
     
     func checkIfFilterChanged(_ categories: [Category]) -> Bool {
-        categories.sorted(by: { $0.name > $1.name }) != coordinator.categories.sorted(by: { $0.name > $1.name })
+        categories.sorted(by: { $0.name > $1.name }) != coordinator.currentCategories
     }
     
 }

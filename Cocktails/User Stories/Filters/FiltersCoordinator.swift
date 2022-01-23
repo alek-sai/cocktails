@@ -9,12 +9,28 @@ import Foundation
 
 class FiltersCoordinator: BaseCoordinator {
     
-    var categories: [Category]!
+    // MARK: Another Modules
+    
     var drinksCoordinator: DrinksCoordinator!
+    
+    // MARK: Linking
+    
+    let filtersView = FiltersViewController()
+    
+    // MARK: Data
+    
+    var currentCategories: [Category] = []
+    
+    // MARK: Convienient start with external data binding
+    
+    func startWithCategories(_ categories: [Category]) {
+        start()
+        
+        currentCategories = categories.sorted(by: { $0.name > $1.name })
+        filtersView.presenter.interactor.categories = categories
+    }
 
     override func start() {
-        let filtersView = FiltersViewController()
-        
         filtersView.title = R.string.localizable.navigatorFiltersTitle()
         
         // MARK: Manual resolving
@@ -25,10 +41,6 @@ class FiltersCoordinator: BaseCoordinator {
         filtersView.presenter.interactor.presenter = filtersView.presenter
         filtersView.presenter.view = filtersView
         filtersView.presenter.view.presenter = filtersView.presenter
-        
-        // MARK: External data binding
-        
-        filtersView.presenter.interactor.categories = categories
         
         // MARK: Navigate
 

@@ -59,7 +59,7 @@ extension DrinksPresenter: DrinksPresenterInputsProtocol {
         view?.reset()
         view?.setFilterBadgeEnabled(categories.filter { !$0.active }.count > 0)
         
-        interactor.categories = categories.filter { $0.active }
+        interactor.categoriesToLoad = categories.filter { $0.active }
         interactor.loadNextDrinksCategory()
     }
     
